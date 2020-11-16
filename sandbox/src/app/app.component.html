@@ -1,6 +1,15 @@
-<h1>Angular</h1>
-<p>Je suis dans app-root</p>
+<div class="container">
 
-<app-hello></app-hello>
-<!-- <div class="app-hello"></div>
-<div app-hello></div> -->
+    <h1>Angular</h1>
+    <p [style.color]="title !== 'MonTitre' ? 'red' : 'royalblue'">Je suis dans app-root</p>
+ 
+    <button [disabled]="title !== 'MonTitre'" class="btn btn-primary">Send</button>
+    <!-- <button disabled="{{ title !== 'MonTitre' }}" class="btn btn-primary">Send</button> -->
+
+    <input type="text" [(ngModel)]="title"> {{ title }}
+
+    <app-hello></app-hello>
+    <!-- <div class="app-hello"></div>
+    <div app-hello></div> -->
+
+</div>
