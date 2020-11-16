@@ -5,11 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppHelloComponent } from './hello.component';
+import { TextcounterComponent } from './textcounter/textcounter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppHelloComponent
+    AppHelloComponent,
+    TextcounterComponent
   ],
   imports: [
     BrowserModule,
