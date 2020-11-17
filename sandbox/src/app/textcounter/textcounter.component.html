@@ -5,5 +5,8 @@
               [maxlength]="maxLength"
               placeholder="Saisissez votre texte..."></textarea>
 
-    <div class="text-counter-result">{{ content.length }}/{{ maxLength }}</div>
+    <div class="d-flex">
+        <button class="btn btn-sm btn-primary" (click)="onSend()">Envoyer</button>
+        <div class="ml-auto text-counter-result">{{ content.length }}/{{ maxLength }}</div>
+    </div>
 </div>

@@ -9,8 +9,12 @@ export class AppComponent {
   title: string = 'MonTitre';
   validated: boolean = true;
 
-  onClick() {
+  onClick(): void {
     alert('Aiieee');
+  }
+
+  getText(text): void {
+    console.log(text);
   }
 
   onInput(evt: Event): void {    

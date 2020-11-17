@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-textcounter',
@@ -9,8 +9,13 @@ export class TextcounterComponent implements OnInit {
   @Input() content: string = '';
   @Input('max') maxLength: number = 10;
 
+  @Output() toto = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void { }
 
+  onSend() {
+    this.toto.emit(this.content);
+  }
 }
