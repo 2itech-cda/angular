@@ -1,4 +1,9 @@
 <div class="text-counter">
-    <textarea class="text-counter-input text-counter-error form-control" placeholder="Saisissez votre texte..."></textarea>
-    <div class="text-counter-result">0/140</div>
+    <textarea [(ngModel)]="content"
+              [class]="content.length === maxLength ? 'text-counter-error' : ''"
+              class="form-control text-counter-input"
+              [maxlength]="maxLength"
+              placeholder="Saisissez votre texte..."></textarea>
+
+    <div class="text-counter-result">{{ content.length }}/{{ maxLength }}</div>
 </div>
