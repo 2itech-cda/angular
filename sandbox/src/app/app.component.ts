@@ -8,13 +8,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title: string = 'MonTitre';
   validated: boolean = true;
+  comments: Array<string> = [];
 
   onClick(): void {
     alert('Aiieee');
   }
 
   getText(text): void {
-    console.log(text);
+    this.comments.push(text);
   }
 
   onInput(evt: Event): void {    
