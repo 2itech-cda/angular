@@ -6,7 +6,7 @@
               placeholder="Saisissez votre texte..."></textarea>
 
     <div class="d-flex">
-        <button class="btn btn-sm btn-primary" (click)="onSend()">Envoyer</button>
+        <button class="btn btn-sm btn-primary" [disabled]="content.length < 1" (click)="onSend()">Envoyer</button>
         <div class="ml-auto text-counter-result">{{ content.length }}/{{ maxLength }}</div>
     </div>
 </div>

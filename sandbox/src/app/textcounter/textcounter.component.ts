@@ -17,5 +17,6 @@ export class TextcounterComponent implements OnInit {
 
   onSend() {
     this.toto.emit(this.content);
+    this.content = '';
   }
 }

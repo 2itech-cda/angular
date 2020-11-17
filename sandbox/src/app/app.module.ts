@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppHelloComponent } from './hello.component';
 import { TextcounterComponent } from './textcounter/textcounter.component';
+import { CommentsComponent } from './comments/comments.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppHelloComponent,
-    TextcounterComponent
+    TextcounterComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,

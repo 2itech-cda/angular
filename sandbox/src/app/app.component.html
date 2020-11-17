@@ -4,12 +4,7 @@
 
     <app-textcounter (toto)="getText($event)" max="140"></app-textcounter>
 
-    <!-- 
-        @TODO Créer un composant dédié à l'affichage des commentaires
-     -->
-    <div class="comments">
-        <p *ngFor="let comment of comments">{{ comment }}</p>
-    </div>
+    <app-comments [items]="comments"></app-comments>
 
     <!-- <app-hello></app-hello> -->
     <!-- <div class="app-hello"></div>
