@@ -1,16 +1,10 @@
 <div class="container">
 
     <h1>Angular</h1>
-    <p [style.color]="title !== 'MonTitre' ? 'red' : 'royalblue'">Je suis dans app-root</p>
- 
-    <button [disabled]="title !== 'MonTitre'" (click)="onClick()" class="btn btn-primary">Send</button>
-    <!-- <button disabled="{{ title !== 'MonTitre' }}" class="btn btn-primary">Send</button> -->
 
-    <input type="text" (input)="onInput($event)">
+    <app-textcounter></app-textcounter>
 
-    <input type="text" [(ngModel)]="title"> {{ title }}
-
-    <app-hello></app-hello>
+    <!-- <app-hello></app-hello> -->
     <!-- <div class="app-hello"></div>
     <div app-hello></div> -->
 

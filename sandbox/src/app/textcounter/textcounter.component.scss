@@ -1,0 +1,24 @@
+.text-counter {
+  background-color: #F0F0F0;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+.form-control:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+​​​​​​​.text-counter-input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.text-counter-error {
+    border-color: red;
+}
+
+.text-counter-result {
+    text-align: right;
+}
