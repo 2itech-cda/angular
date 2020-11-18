@@ -14,7 +14,7 @@ export class AppComponent {
     alert('Aiieee');
   }
 
-  getText(text): void {
+  getText(text: string): void {
     this.comments.push(text);
   }
 

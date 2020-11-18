@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-palette',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./palette.component.scss']
 })
 export class PaletteComponent implements OnInit {
-  colors: any = {red: 0, green: 0, blue: 0};
+  @Input() colors: {red: number, green: number, blue: number} = {red: 0, green: 0, blue: 0};
 
   constructor() { }
 

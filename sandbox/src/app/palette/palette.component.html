@@ -1,7 +1,7 @@
 <div class="palette">
-    <app-slider min="0" max="255" value="0" (slide)="colors.red=$event"></app-slider>
-    <app-slider min="0" max="255" value="0" (slide)="colors.green=$event"></app-slider>
-    <app-slider min="0" max="255" value="0" (slide)="colors.blue=$event"></app-slider>
+    <app-slider min="0" max="255" [value]="colors.red" (slide)="colors.red=$event"></app-slider>
+    <app-slider min="0" max="255" [value]="colors.green" (slide)="colors.green=$event"></app-slider>
+    <app-slider min="0" max="255" [value]="colors.blue" (slide)="colors.blue=$event"></app-slider>
 
     <div class="palette-color" [style.backgroundColor]="getColor()"></div>
 </div>
