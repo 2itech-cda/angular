@@ -1,6 +1,13 @@
 <div class="container">
-
     <h1>Angular</h1>
+
+    <app-togglebox title="Titre box 1">
+        <p>Ici le contenu de ma box 1</p>
+    </app-togglebox>
+
+    <app-togglebox title="Titre box 2" [state]="false">
+        <p>Ici le contenu de ma box 2</p>
+    </app-togglebox>
 
     <app-textcounter (toto)="getText($event)" max="140"></app-textcounter>
 

@@ -1,0 +1,9 @@
+
+<!-- .togglebox>h2.togglebox-title+.togglebox-body -->
+
+<div class="togglebox">
+    <h2 class="togglebox-title" (click)="state=!state">{{ title }}</h2>
+    <div class="togglebox-body" *ngIf="state">
+        <ng-content></ng-content>
+    </div>
+</div>

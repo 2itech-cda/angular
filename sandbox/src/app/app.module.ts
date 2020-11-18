@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { AppHelloComponent } from './hello.component';
 import { TextcounterComponent } from './textcounter/textcounter.component';
 import { CommentsComponent } from './comments/comments.component';
+import { ToggleboxComponent } from './togglebox/togglebox.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppHelloComponent,
     TextcounterComponent,
-    CommentsComponent
+    CommentsComponent,
+    ToggleboxComponent
   ],
   imports: [
     BrowserModule,
