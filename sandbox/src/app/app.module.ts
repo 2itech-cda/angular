@@ -8,6 +8,8 @@ import { AppHelloComponent } from './hello.component';
 import { TextcounterComponent } from './textcounter/textcounter.component';
 import { CommentsComponent } from './comments/comments.component';
 import { ToggleboxComponent } from './togglebox/togglebox.component';
+import { SliderComponent } from './slider/slider.component';
+import { PaletteComponent } from './palette/palette.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { ToggleboxComponent } from './togglebox/togglebox.component';
     AppHelloComponent,
     TextcounterComponent,
     CommentsComponent,
-    ToggleboxComponent
+    ToggleboxComponent,
+    SliderComponent,
+    PaletteComponent
   ],
   imports: [
     BrowserModule,

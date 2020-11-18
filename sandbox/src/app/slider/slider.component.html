@@ -1,0 +1,15 @@
+<div class="slider">
+    <input class="slider-range"
+           (input)="onChange($event.target.value)"
+           type="range"
+           [min]="min"
+           [max]="max"
+           [(ngModel)]="value">
+
+    <input class="slider-number"
+           (input)="onChange($event.target.value)"
+           type="number"
+           [min]="min"
+           [max]="max"
+           [(ngModel)]="value">
+</div>

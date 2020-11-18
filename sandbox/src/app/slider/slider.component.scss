@@ -1,0 +1,12 @@
+.slider {
+  display: flex;
+}
+
+.slider-range {
+  flex-grow: 1;
+}
+
+.slider-number {
+  width: 48px;
+  text-align: right;
+}
