@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./palette.component.scss']
 })
 export class PaletteComponent implements OnInit {
+  colors: any = {red: 0, green: 0, blue: 0};
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
+  getColor(): string {
+    return `rgb(${this.colors.red}, ${this.colors.green}, ${this.colors.blue})`;
+  }
 }
