@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
+ 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppHelloComponent } from './hello.component';
@@ -10,6 +11,7 @@ import { CommentsComponent } from './comments/comments.component';
 import { ToggleboxComponent } from './togglebox/togglebox.component';
 import { SliderComponent } from './slider/slider.component';
 import { PaletteComponent } from './palette/palette.component';
+import { ChucknorrisComponent } from './chucknorris/chucknorris.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +21,14 @@ import { PaletteComponent } from './palette/palette.component';
     CommentsComponent,
     ToggleboxComponent,
     SliderComponent,
-    PaletteComponent
+    PaletteComponent,
+    ChucknorrisComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

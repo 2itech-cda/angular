@@ -1,3 +1,15 @@
+export interface User {
+    name: string;
+    email: string;
+    password: string;
+}
+
+export class Admin implements User {
+    name: string = '';
+    email: string = '';
+    password: string = '';
+}
+
 export interface Destructor {
     delete(): void;
 }
