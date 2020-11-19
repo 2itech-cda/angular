@@ -12,6 +12,7 @@ import { ToggleboxComponent } from './togglebox/togglebox.component';
 import { SliderComponent } from './slider/slider.component';
 import { PaletteComponent } from './palette/palette.component';
 import { ChucknorrisComponent } from './chucknorris/chucknorris.component';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ChucknorrisComponent } from './chucknorris/chucknorris.component';
     ToggleboxComponent,
     SliderComponent,
     PaletteComponent,
-    ChucknorrisComponent
+    ChucknorrisComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
