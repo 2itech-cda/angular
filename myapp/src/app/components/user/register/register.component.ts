@@ -43,4 +43,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+  hasError(name: string, validator: string): boolean {
+    return this.form.controls[name].hasError(validator);
+  }
 }
