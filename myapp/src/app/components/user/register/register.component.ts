@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/User';
+import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -15,6 +16,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
+    private notification: NotificationService,
     private router: Router
   ) { }
 
@@ -31,15 +33,14 @@ export class RegisterComponent implements OnInit {
       this.userService.register(this.form.value)
           .subscribe(
             (data: User) => {
-              // TODO ajouter une notification
+              this.notification.notify({text: 'Registration OK', level: 'success'});
               this.router.navigate(['/user/login']);
             },
             err => {
-              // TODO ajouter une notification en cas d'erreur
+              this.notification.notify({text: 'Registration Error', level: 'danger'});
             }
           );
     }
-    // console.log(this.form.value);
   }
 
 }
