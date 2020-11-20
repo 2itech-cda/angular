@@ -1,0 +1,38 @@
+.notification {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+}
+
+.notification-level-success {
+    background-color: #cbffd2;
+    border-color: #85cd8f;
+    color: #3c7544;
+}
+
+.notification-level-danger {
+    background-color: #ffcbcb;
+    border-color: #cd8585;
+    color: #753c3c;
+}
+
+.notification-level-info {
+    background-color: #cbe1ff;
+    border-color: #85bdcd;
+    color: #3c6275;
+}
+
+.notification-level-warn {
+    background-color: #fff4cb;
+    border-color: #cdc185;
+    color: #75743c;
+}
+
+.notification-message {
+    margin: 0;
+    padding: 0;
+}

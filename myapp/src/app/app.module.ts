@@ -24,6 +24,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { DetailsComponent } from './components/product/details/details.component';
 import { RegisterComponent } from './components/user/register/register.component';
 import { LoginComponent } from './components/user/login/login.component';
+import { NotificationComponent } from './components/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { LoginComponent } from './components/user/login/login.component';
     AboutComponent,
     DetailsComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
