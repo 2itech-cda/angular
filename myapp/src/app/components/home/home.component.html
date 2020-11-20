@@ -1,7 +1,11 @@
-<mat-card>
-    <mat-card-title>Simple card</mat-card-title>
+<div class="home-content">
+    <mat-card *ngFor="let product of products">
+        <mat-card-title>{{ product.name }}</mat-card-title>
 
-    <mat-card-content>
-        Content of the card
-    </mat-card-content>
-</mat-card>
+        <mat-card-content>
+            <p>{{ product.description }}</p>
+
+            <button mat-flat-button color="primary" [routerLink]="['/product/details', product.id]">Détails</button>
+        </mat-card-content>
+    </mat-card>
+</div>

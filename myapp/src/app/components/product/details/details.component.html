@@ -1,0 +1,12 @@
+<mat-card *ngIf="product">
+    <mat-card-title>{{ product.name }}</mat-card-title>
+
+    <mat-card-content>
+        <p>{{ product.description }}</p>
+        <p>{{ product.price }}€</p>
+    </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf="err">
+    <mat-card-title>Error: {{ err.status }} {{ err.StatusText }}</mat-card-title>
+</mat-card>

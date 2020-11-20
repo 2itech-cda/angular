@@ -15,13 +15,15 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { AboutComponent } from './components/about/about.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DetailsComponent } from './components/product/details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SidenavComponent,
-    AboutComponent
+    AboutComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
