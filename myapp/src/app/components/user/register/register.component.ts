@@ -33,11 +33,11 @@ export class RegisterComponent implements OnInit {
       this.userService.register(this.form.value)
           .subscribe(
             (data: User) => {
-              this.notification.notify({text: 'Registration OK', level: 'success'});
+              this.notification.success('Registration OK');
               this.router.navigate(['/user/login']);
             },
             err => {
-              this.notification.notify({text: 'Registration Error', level: 'danger'});
+              this.notification.error('Registration Error');
             }
           );
     }
