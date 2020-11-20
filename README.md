@@ -11,3 +11,12 @@ ng g c components/home
 ng generate @angular/material:material-nav components/sidenav
 ng serve -o
 ```
+
+## API
+
+```
+Name:        "Foo",
+Email:       "foo@example.com",
+Password:    "0000",
+Role:        15, // admin
+```
