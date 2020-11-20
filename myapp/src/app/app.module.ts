@@ -16,6 +16,8 @@ import { MatCardModule } from '@angular/material/card';
 import { AboutComponent } from './components/about/about.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DetailsComponent } from './components/product/details/details.component';
+import { RegisterComponent } from './components/user/register/register.component';
+import { LoginComponent } from './components/user/login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { DetailsComponent } from './components/product/details/details.component
     HomeComponent,
     SidenavComponent,
     AboutComponent,
-    DetailsComponent
+    DetailsComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
