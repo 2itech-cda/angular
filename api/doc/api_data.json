@@ -10,10 +10,10 @@
         "Header": [
           {
             "group": "Header",
-            "type": "String",
+            "type": "Bearer",
             "optional": false,
             "field": "Authorization",
-            "description": "<p>Bearer Token</p>"
+            "description": "<p>JWT</p>"
           }
         ]
       }
@@ -60,7 +60,7 @@
       },
       {
         "title": "Curl",
-        "content": "curl \\\n  -X POST \\\n  http://localhost:3000/products \\\n  -H 'Content-Type: application/json' \\\n  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRm9vIiwiZW1haWwiOiJmb29AZXhhbXBsZS5jb20iLCJhZG1pbiI6dHJ1ZSwiZXhwIjoxNjA1MTg2MTg4fQ.LA_Y-NthD0gP4S4H34-JviakZ5b2kUx76cxCi2iSumE' \\\n  -d '{\"name\":\"Item name\",\"description\":\"Item description\",\"active\":true,\"price\": 39.39}'",
+        "content": "curl \\\n  -X POST \\\n  http://localhost:3000/products \\\n  -H 'Content-Type: application/json' \\\n  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwiYWRtaW4iOnRydWUsImV4cCI6MTYwNjIxNjYzNn0.BrPoxvbeFh9R4PSZ7MHO3iB5dNlgRjxUZ_l-2QQM6Zc' \\\n  -d '{\"name\":\"Item name\",\"description\":\"Item description\",\"active\":true,\"price\": 39.39}'",
         "type": "curl"
       }
     ],
@@ -85,6 +85,11 @@
           "type": "json"
         },
         {
+          "title": "Error 422",
+          "content": "HTTP/1.1 422 Unprocessable Entity\n{\n  \"message\": \"Unprocessable Entity\"\n}",
+          "type": "json"
+        },
+        {
           "title": "Error 500",
           "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"message\": \"Internal Server Error\"\n}",
           "type": "json"
@@ -103,10 +108,10 @@
         "Header": [
           {
             "group": "Header",
-            "type": "String",
+            "type": "Bearer",
             "optional": false,
             "field": "Authorization",
-            "description": "<p>Bearer Token</p>"
+            "description": "<p>JWT</p>"
           }
         ]
       }
@@ -127,7 +132,7 @@
     "examples": [
       {
         "title": "Curl",
-        "content": "curl -X DELETE http://localhost:3000/products/77efb316-070b-a144-8425-148ed175e164 \\\n  -H \"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRm9vIiwiZW1haWwiOiJmb29AZXhhbXBsZS5jb20iLCJhZG1pbiI6dHJ1ZSwiZXhwIjoxNjA1MTg2MTg4fQ.LA_Y-NthD0gP4S4H34-JviakZ5b2kUx76cxCi2iSumE\"",
+        "content": "curl -X DELETE http://localhost:3000/products/77efb316-070b-a144-8425-148ed175e164 \\\n  -H \"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwiYWRtaW4iOnRydWUsImV4cCI6MTYwNjIxNjYzNn0.BrPoxvbeFh9R4PSZ7MHO3iB5dNlgRjxUZ_l-2QQM6Zc\"",
         "type": "curl"
       }
     ],
@@ -310,6 +315,125 @@
     }
   },
   {
+    "type": "put",
+    "url": "/products",
+    "title": "Update",
+    "name": "Update",
+    "group": "Product",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "Bearer",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>JWT</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>UUID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>name of the product</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>description of the product</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "active",
+            "description": "<p>activation of the product</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Float",
+            "optional": false,
+            "field": "price",
+            "description": "<p>price of the product</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "JSON",
+        "content": "{\n    \"id\": \"fbe66211-b350-4647-ae32-29aca84a27b7\",\n    \"name\": \"Item UPDATE 1\",\n    \"description\": \"Item Description UPDATE 1\",\n    \"active\": true,\n    \"price\": 90.99\n}",
+        "type": "json"
+      },
+      {
+        "title": "Curl",
+        "content": "curl \\\n  -X PUT \\\n  http://localhost:3000/products \\\n  -H 'Content-Type: application/json' \\\n  -H \"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwiYWRtaW4iOnRydWUsImV4cCI6MTYwNjIxNjYzNn0.BrPoxvbeFh9R4PSZ7MHO3iB5dNlgRjxUZ_l-2QQM6Zc\" \\\n  -d '{\"id\": \"fbe66211-b350-4647-ae32-29aca84a27b7\",\"name\":\"Item UPDATE 1\",\"description\":\"Item Description UPDATE 1\",\"active\":true,\"price\":90.99}'",
+        "type": "curl"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "cmd/app/internal/handlers/product.go",
+    "groupTitle": "Product",
+    "error": {
+      "examples": [
+        {
+          "title": "Error 400",
+          "content": "HTTP/1.1 400 Bad Request\n{\n  \"message\": \"missing or malformed jwt\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error 400",
+          "content": "HTTP/1.1 400 Bad Request\n{\n  \"message\": \"Bad Request\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error 401",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"message\": \"invalid or expired jwt\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error 401",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"message\": \"Unauthorized\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error 404",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"message\": \"Not Found\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error 500",
+          "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"message\": \"Internal Server Error\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Error 204",
+          "content": "HTTP/1.1 204 No Content",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
     "type": "post",
     "url": "/users",
     "title": "Create",
@@ -321,10 +445,10 @@
         "Header": [
           {
             "group": "Header",
-            "type": "String",
+            "type": "Bearer",
             "optional": false,
             "field": "Authorization",
-            "description": "<p>Bearer Token</p>"
+            "description": "<p>JWT</p>"
           }
         ]
       }
@@ -371,7 +495,7 @@
       },
       {
         "title": "Curl",
-        "content": "curl \\\n  -X POST \\\n  http://localhost:3000/users \\\n  -H 'Content-Type: application/json' \\\n  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRm9vIiwiZW1haWwiOiJmb29AZXhhbXBsZS5jb20iLCJhZG1pbiI6dHJ1ZSwiZXhwIjoxNjA1MTg2MTg4fQ.LA_Y-NthD0gP4S4H34-JviakZ5b2kUx76cxCi2iSumE' \\\n  -d '{\"name\":\"Bar\",\"email\":\"bar@example.com\",\"password\":\"1234\",\"role\": 7}'",
+        "content": "curl \\\n  -X POST \\\n  http://localhost:3000/users \\\n  -H 'Content-Type: application/json' \\\n  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwiYWRtaW4iOnRydWUsImV4cCI6MTYwNjIxNjYzNn0.BrPoxvbeFh9R4PSZ7MHO3iB5dNlgRjxUZ_l-2QQM6Zc' \\\n  -d '{\"name\":\"Bar\",\"email\":\"bar@example.com\",\"password\":\"1234\",\"role\": 7}'",
         "type": "curl"
       }
     ],
@@ -424,10 +548,10 @@
         "Header": [
           {
             "group": "Header",
-            "type": "String",
+            "type": "Bearer",
             "optional": false,
             "field": "Authorization",
-            "description": "<p>Bearer Token</p>"
+            "description": "<p>JWT</p>"
           }
         ]
       }
@@ -448,7 +572,7 @@
     "examples": [
       {
         "title": "Curl",
-        "content": "curl -X DELETE http://localhost:3000/users/bar@example.com \\\n  -H \"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRm9vIiwiZW1haWwiOiJmb29AZXhhbXBsZS5jb20iLCJhZG1pbiI6dHJ1ZSwiZXhwIjoxNjA1MTg2MTg4fQ.LA_Y-NthD0gP4S4H34-JviakZ5b2kUx76cxCi2iSumE\"",
+        "content": "curl -X DELETE http://localhost:3000/users/bar@example.com \\\n  -H \"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwiYWRtaW4iOnRydWUsImV4cCI6MTYwNjIxNjYzNn0.BrPoxvbeFh9R4PSZ7MHO3iB5dNlgRjxUZ_l-2QQM6Zc\"",
         "type": "curl"
       }
     ],
@@ -491,10 +615,10 @@
         "Header": [
           {
             "group": "Header",
-            "type": "String",
+            "type": "Bearer",
             "optional": false,
             "field": "Authorization",
-            "description": "<p>Bearer Token</p>"
+            "description": "<p>JWT</p>"
           }
         ]
       }
@@ -556,7 +680,7 @@
     "examples": [
       {
         "title": "Curl",
-        "content": "curl http://localhost:3000/users/foo@example.com \\\n  -H \"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRm9vIiwiZW1haWwiOiJmb29AZXhhbXBsZS5jb20iLCJhZG1pbiI6dHJ1ZSwiZXhwIjoxNjA1MTg2MTg4fQ.LA_Y-NthD0gP4S4H34-JviakZ5b2kUx76cxCi2iSumE\"",
+        "content": "curl http://localhost:3000/users/foo@example.com \\\n  -H \"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwiYWRtaW4iOnRydWUsImV4cCI6MTYwNjIxNjYzNn0.BrPoxvbeFh9R4PSZ7MHO3iB5dNlgRjxUZ_l-2QQM6Zc\"",
         "type": "curl"
       }
     ],
@@ -599,10 +723,10 @@
         "Header": [
           {
             "group": "Header",
-            "type": "String",
+            "type": "Bearer",
             "optional": false,
             "field": "Authorization",
-            "description": "<p>Bearer Token</p>"
+            "description": "<p>JWT</p>"
           }
         ]
       }
@@ -657,7 +781,7 @@
       "examples": [
         {
           "title": "Success",
-          "content": "HTTP/1.1 200 OK\n[{\n     \"name\": \"Foo\",\n     \"email\": \"foo@example.com\",\n     \"date_created\": \"0001-01-01T00:00:00Z\",\n     \"date_updated\": \"0001-01-01T00:00:00Z\"\n }]",
+          "content": "HTTP/1.1 200 OK\n[\n    {\n        \"name\": \"Admin\",\n        \"email\": \"admin@example.com\",\n        \"role\": 15,\n        \"date_created\": \"0001-01-01T00:00:00Z\",\n        \"date_updated\": \"0001-01-01T00:00:00Z\"\n    },\n    {\n        \"name\": \"Bar\",\n        \"email\": \"bar@example.com\",\n        \"role\": 7,\n        \"date_created\": \"0001-01-01T00:00:00Z\",\n        \"date_updated\": \"0001-01-01T00:00:00Z\"\n    }\n]",
           "type": "json"
         }
       ]
@@ -665,7 +789,7 @@
     "examples": [
       {
         "title": "Curl",
-        "content": "curl http://localhost:3000/users \\\n  -H \"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRm9vIiwiZW1haWwiOiJmb29AZXhhbXBsZS5jb20iLCJhZG1pbiI6dHJ1ZSwiZXhwIjoxNjA1MTg2MTg4fQ.LA_Y-NthD0gP4S4H34-JviakZ5b2kUx76cxCi2iSumE\"",
+        "content": "curl http://localhost:3000/users \\\n  -H \"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwiYWRtaW4iOnRydWUsImV4cCI6MTYwNjIxNjYzNn0.BrPoxvbeFh9R4PSZ7MHO3iB5dNlgRjxUZ_l-2QQM6Zc\"",
         "type": "curl"
       }
     ],
@@ -740,8 +864,8 @@
     "error": {
       "examples": [
         {
-          "title": "Error 401",
-          "content": "HTTP/1.1 401 Bad Request\n{\n  \"message\": \"Bad Request\"\n}",
+          "title": "Error 400",
+          "content": "HTTP/1.1 400 Bad Request\n{\n  \"message\": \"Bad Request\"\n}",
           "type": "json"
         },
         {
@@ -807,7 +931,7 @@
       "examples": [
         {
           "title": "Success",
-          "content": "{\n    \"name\": \"Bar\",\n    \"email\": \"bar@example.com\",\n    \"date_created\": \"0001-01-01T00:00:00Z\",\n    \"date_updated\": \"0001-01-01T00:00:00Z\"\n}",
+          "content": "{\n    \"name\": \"Bar\",\n    \"email\": \"bar@example.com\",\n    \"role\": 7,\n    \"date_created\": \"0001-01-01T00:00:00Z\",\n    \"date_updated\": \"0001-01-01T00:00:00Z\"\n}",
           "type": "json"
         }
       ]
@@ -817,13 +941,18 @@
     "error": {
       "examples": [
         {
-          "title": "Error 401",
-          "content": "HTTP/1.1 401 Bad Request\n{\n  \"message\": \"Bad Request\"\n}",
+          "title": "Error 400",
+          "content": "HTTP/1.1 400 Bad Request\n{\n  \"message\": \"Bad Request\"\n}",
           "type": "json"
         },
         {
           "title": "Error 401",
           "content": "HTTP/1.1 401 Unauthorized\n{\n  \"message\": \"Unauthorized\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error 422",
+          "content": "HTTP/1.1 422 Unprocessable Entity\n{\n  \"message\": \"Unprocessable Entity\"\n}",
           "type": "json"
         },
         {
@@ -846,10 +975,10 @@
         "Header": [
           {
             "group": "Header",
-            "type": "String",
+            "type": "Bearer",
             "optional": false,
             "field": "Authorization",
-            "description": "<p>Bearer Token</p>"
+            "description": "<p>JWT</p>"
           }
         ]
       }
@@ -896,7 +1025,7 @@
       },
       {
         "title": "Curl",
-        "content": "curl \\\n  -X POST \\\n  http://localhost:3000/register \\\n  -H 'Content-Type: application/json' \\\n  -H \"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRm9vIiwiZW1haWwiOiJmb29AZXhhbXBsZS5jb20iLCJhZG1pbiI6dHJ1ZSwiZXhwIjoxNjA1MTg2MTg4fQ.LA_Y-NthD0gP4S4H34-JviakZ5b2kUx76cxCi2iSumE\" \\\n  -d '{\"name\": \"FooBar\",\"email\":\"bar@example.com\",\"password\":\"0000\",\"role\":7}'",
+        "content": "curl \\\n  -X POST \\\n  http://localhost:3000/register \\\n  -H 'Content-Type: application/json' \\\n  -H \"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwiYWRtaW4iOnRydWUsImV4cCI6MTYwNjIxNjYzNn0.BrPoxvbeFh9R4PSZ7MHO3iB5dNlgRjxUZ_l-2QQM6Zc\" \\\n  -d '{\"name\": \"FooBar\",\"email\":\"bar@example.com\",\"password\":\"0000\",\"role\":7}'",
         "type": "curl"
       }
     ],
@@ -907,6 +1036,40 @@
         {
           "title": "Error 204",
           "content": "HTTP/1.1 204 No Content",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error 400",
+          "content": "HTTP/1.1 400 Bad Request\n{\n  \"message\": \"missing or malformed jwt\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error 400",
+          "content": "HTTP/1.1 400 Bad Request\n{\n  \"message\": \"Bad Request\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error 401",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"message\": \"invalid or expired jwt\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error 401",
+          "content": "HTTP/1.1 401 Unauthorized\n{\n  \"message\": \"Unauthorized\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error 404",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"message\": \"Not Found\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error 500",
+          "content": "HTTP/1.1 500 Internal Server Error\n{\n  \"message\": \"Internal Server Error\"\n}",
           "type": "json"
         }
       ]
